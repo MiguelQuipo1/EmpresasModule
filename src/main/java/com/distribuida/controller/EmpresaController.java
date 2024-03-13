@@ -1,5 +1,6 @@
 package com.distribuida.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -8,13 +9,16 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.distribuida.dto.EmpresaService;
+import com.distribuida.dto.Perfil_empresaService;
 import com.distribuida.entities.Empresa;
+import com.distribuida.entities.Perfil_empresa;
 
 
 @Controller
@@ -23,12 +27,30 @@ public class EmpresaController {
 
 	@Autowired
 	private EmpresaService empresaService;
+	@Autowired
+	private Perfil_empresaService perfil_empresaService;
 	
 	@GetMapping("/findAll")
-	public String findAll(Model model) {
+	public String findAll(ModelMap modelMap) {
 		
 		List<Empresa> empresas =empresaService.finAll();
-		model.addAttribute("empresas",empresas);
+		modelMap.addAttribute("empresas",empresas);
+		
+		List<Perfil_empresa> empresas_logos = new ArrayList<Perfil_empresa>();
+		
+		for (Empresa item : empresas) {
+			
+			int id = item.getIdEmpresa();
+			Perfil_empresa perfil = perfil_empresaService.finOne(id);
+//			if(id != 0) {				
+				empresas_logos.add(perfil);	
+//			}
+			
+			
+		}
+		
+		modelMap.addAttribute("empresas_logos",empresas_logos);
+		
 		return "empresas-listar";
 	}
 	
@@ -40,6 +62,7 @@ public class EmpresaController {
 		if(idEmpresa != null) { 
 			Empresa empresa = empresaService.finOne(idEmpresa);
 			model.addAttribute("empresa",empresa);
+			
 		}
 		if(opcion == 1) return "empresa-add";
 		else return "empresa-del";

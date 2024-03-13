@@ -35,22 +35,16 @@
         </div>
 
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            <c:forEach var="item" items="${empresas}">
+            <c:forEach var="item" items="${empresas_logos}">
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">${item.nombreempresa}</h5>
-                            <p class="card-text">Persona a cargo: ${item.personaCargoEmpresa}</p>
-                            <p class="card-text">Contacto: ${item.personaContacto}</p>
+                            <h5 class="card-title">${item.empresa.nombreempresa}</h5>
+                            
+                            <p class="card-text">Persona a cargo: ${item.empresa.personaCargoEmpresa}</p>
+                            <p class="card-text">Contacto: ${item.empresa.personaContacto}</p>
                             <!-- Agrega aquí los demás campos que deseas mostrar -->
-                            <div class="btn-group" role="group">
-                                <button class="btn btn-success" onclick="window.location.href='/ismac-emprendimientos-web/empresas/findOne?idEmpresa=${item.idEmpresa}&opcion=1'">
-                                    <i class="fa-solid fa-arrows-rotate"></i> Actualizar
-                                </button>
-                                <button class="btn btn-danger" onclick="window.location.href='/ismac-emprendimientos-web/empresas/findOne?idEmpresa=${item.idEmpresa}&opcion=2'">
-                                    <i class="fa-solid fa-trash"></i> Eliminar
-                                </button>
-                            </div>
+                         
                         </div>
                     </div>
                 </div>
