@@ -21,16 +21,18 @@
 	 <input type="hidden" id="idPerfilEmpresa" name="idPerfilEmpresa" value="${perfil.idPerfilEmpresa}">
 	 <br/><br/>
 	 logo
-	 <input type="text" id="logo" name="logo" value="${perfil.logo}">
+	 <div>
+	 <label for="imagen" class="label-file">
+            <i class="fas fa-upload"></i> Seleccionar Imagen</label>
+	 <input type="file" id="logo" name="logo" value="${perfil.logo} onclick="google.script.run.upload(this.parentNode)">
+	 </div>
 	 <br/><br/>
 	 opcColor1
-	 <input type="text" id="opcColor1" name="opcColor1" value="${perfil.opcColor1}">
+	  <input type="color" id="opcColor1" name="opcColor1" onchange="updateColor() value="${perfil.opcColor1}">
+	
 	 <br/><br/>
 	 opcColor2
-	 <input type="text" id="opcColor2" name="opcColor2" value="${perfil.opcColor2}">
-	 <br/><br/>
-	 gamaColor
-	 <input type="text" id="gamaColor" name="gamaColor" value="${perfil.gamaColor}">
+	  <input type="color" id="opcColor2" name="opcColor2" onchange="updateColor() value="${perfil.opcColor2}">
 	 <br/><br/>
 	 Empresa
 	 <select id="idEmpresa" name="idEmpresa">	 	
@@ -46,5 +48,37 @@
 	
 	
 	</form>
+	
+
+	
+	 <script>
+        function updateColor() {
+            // Obtén el valor del input de color
+            var colorInput = document.getElementById('colorInput');
+            var selectedColor = colorInput.value;
+
+            // Convierte el valor HEX a RGB
+            var rgbValue = hexToRgb(selectedColor);
+
+            // Muestra el valor RGB en la página
+            document.getElementById('rgbValue').textContent = 'RGB(' + rgbValue.r + ', ' + rgbValue.g + ', ' + rgbValue.b + ')';
+        }
+
+        function hexToRgb(hex) {
+            // Elimina el símbolo '#' si está presente
+            hex = hex.replace(/^#/, '');
+
+            // Convierte los valores hexadecimales a decimales
+            var bigint = parseInt(hex, 16);
+
+            // Extrae los componentes de color RGB
+            var r = (bigint >> 16) & 255;
+            var g = (bigint >> 8) & 255;
+            var b = bigint & 255;
+
+            // Devuelve un objeto con los valores RGB
+            return { r: r, g: g, b: b };
+        }
+    </script>
 </body>
 </html>

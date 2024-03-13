@@ -21,7 +21,6 @@
 				<th>logo</th>				
 				<th>opcColor1</th>
 				<th>opcColor2</th>
-				<th>gamaColor</th>
 				<th>Empresa</th>
 				<th>Acciones</th>
 			</tr>
@@ -33,7 +32,6 @@
 				<td>${item.logo}</td>				
 				<td>${item.opcColor1}</td>
 				<td>${item.opcColor2}</td>
-				<td>${item.gamaColor}</td>
 				<td>${item.empresa.nombreempresa}</td>
 				<td>
 					<button> <a href="${pageContext.request.contextPath}/perfilEmpresa/findOne?idPerfilEmpresa=${item.idPerfilEmpresa}&opcion=1"> Actualizar </a></button>
