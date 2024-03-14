@@ -32,40 +32,38 @@ public class EmpresaController {
 	
 	@GetMapping("/findAll")
 	public String findAll(ModelMap modelMap) {
-		
-		List<Empresa> empresas =empresaService.finAll();
-		modelMap.addAttribute("empresas",empresas);
-		
-		List<Perfil_empresa> empresas_logos = new ArrayList<Perfil_empresa>();
-		
-		for (Empresa item : empresas) {
-			
-			int id = item.getIdEmpresa();
-			Perfil_empresa perfil = perfil_empresaService.finOne(id);
-//			if(id != 0) {				
-				empresas_logos.add(perfil);	
-//			}
-			
-			
-		}
-		
-		modelMap.addAttribute("empresas_logos",empresas_logos);
-		
-		return "empresas-listar";
+	    List<Empresa> empresas = empresaService.finAll();
+	    modelMap.addAttribute("empresas", empresas);
+
+	    List<Perfil_empresa> empresas_logos = new ArrayList<Perfil_empresa>();
+
+	    for (Empresa item : empresas) {
+	        int id = item.getIdEmpresa();
+	        Perfil_empresa perfil = perfil_empresaService.finOne(id);
+	        // Verificar si el perfil existe para esta empresa antes de agregarlo
+	        if (perfil != null) {
+	            empresas_logos.add(perfil);
+	        }
+	    }
+
+	    modelMap.addAttribute("empresas_logos", empresas_logos);
+
+	    return "empresas-listar";
 	}
+
 	
 	@GetMapping("/findOne")
 	public String findOne(@RequestParam("idEmpresa") @Nullable Integer idEmpresa
 			, @RequestParam("opcion") @Nullable Integer opcion
 			, Model model) {
 		
-		if(idEmpresa != null) { 
-			Empresa empresa = empresaService.finOne(idEmpresa);
-			model.addAttribute("empresa",empresa);
-			
-		}
-		if(opcion == 1) return "empresa-add";
-		else return "empresa-del";
+			if(idEmpresa != null) { 
+				Empresa empresa = empresaService.finOne(idEmpresa);
+				model.addAttribute("empresa",empresa);
+				
+			}
+			if(opcion == 1) return "empresa-add";
+			else return "empresa-del";
 		
 	}
 	@PostMapping("/add")
@@ -83,7 +81,7 @@ public class EmpresaController {
 			,Model model) {
 		if(idEmpresa == null)empresaService.add(0, QRPago, nombreempresa, personaCargoEmpresa, personaContacto, telefono, correo, direccion, fechaInicio, tipoEmpresa, horariosAtencion);
 		else empresaService.up(idEmpresa, QRPago, nombreempresa, personaCargoEmpresa, personaContacto, telefono, correo, direccion, fechaInicio, tipoEmpresa, horariosAtencion);
-		return "redirect:/empresas/findAll";
+		return "redirect:/perfilEmpresa/findOne?opcion=1";
 	}
 	
 	@GetMapping("/del")

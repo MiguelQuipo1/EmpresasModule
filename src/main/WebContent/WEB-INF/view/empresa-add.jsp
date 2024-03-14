@@ -15,7 +15,7 @@
 <body>
 
 	<nav>
-	<h1> LIBRERIA  </h1>
+	<h1> EMPRENDIMIENTOS  </h1>
 
 		<div class="lista">
 			<ul style="display: inline"><a  href="${pageContext.request.contextPath}">Home</a></ul>
@@ -26,9 +26,10 @@
 		</div>	
 	</nav>
 	<section class="py-5 px-5">
-	<h1>Empresa</h1>
+	
 		
 	<div class="container">
+	<h1>Empresa</h1><br>
 	<form action="add" method="POST" class="row g-3 needs-validation" novalidate>
 
  	
@@ -36,12 +37,13 @@
  
 	 <div class="form-group">
  		<label for="QRPago" class="label-file">
-            <i class="fas fa-upload"></i> Seleccionar Un logo para reprecentar tu empresa</label>
-	 <input type="file" class="form-control"  id="QRPago" name="QRPago" value="${empresa.QRPago}" placeholder="Si es neesario ingresa una redireccion externa QR">
+            <i class="fas fa-upload"></i> Seleccionar Una redireccion QR para reprecentar tu empresa</label>
+	 <input type="file" class="form-control"  id="QRPago" name="QRPago" value="${empresa.QRPago}"  accept=".jpg, .png" >
 	 	<!-- <div class="invalid-feedback">
 	 	*
 	 	</div> -->
  	</div>
+ 	
  	
  	<div class="form-group">
  	<label for="nombreempresa" class="form-label">Nombre Empresa</label>
@@ -60,14 +62,14 @@
  	</div>
 
 	<div class="form-group">
- 	<label for="personaContacto" class="form-label">Contacto</label>
+ 	<label for="personaContacto" class="form-label">Contacto Persona A Cargo</label>
  	<input type="text" id="personaContacto" class="form-control" name="personaContacto" value="${empresa.personaContacto}" required>
  	<!-- <div class="invalid-feedback">
 	 	*
 	 	</div> -->
  	</div>
  	<div class="form-group">
- 	<label for="telefono" class="form-label">Télefono</label>
+ 	<label for="telefono" class="form-label">Télefono Empresa</label>
  	<input type="text" id="telefono" class="form-control" name="telefono" value="${empresa.telefono}" required>
  	<!-- <div class="invalid-feedback">
 	 	*
@@ -76,7 +78,7 @@
  
  	<div class="form-group">
  	<label for="correo" class="form-label">Correo</label>
- 	<input type="email" id="correo" name="correo" class="form-control" value="${empresa.correo}" required>
+ 	<input type="email" id="correo" name="correo" class="form-control" value="${empresa.correo}" >
  	<!-- <div class="invalid-feedback">
 	 	*
 	 	</div> -->
@@ -92,7 +94,7 @@
  	
  	<div class="form-group">
  	<label for="FechaInicio" class="form-label">Fecha en la que inico el emprendimeinto</label>
- 	<input type="date" id="FechaInicio" name="FechaInicio" class="form-control" value="${fn:substring(empresa.fechaInicio,0,10)}" placeholder="Fecha en la que inico el emprendimeinto">
+ 	<input type="date" id="FechaInicio" name="FechaInicio" class="form-control" value="${fn:substring(empresa.fechaInicio,0,10)}" placeholder="Fecha en la que inico el emprendimeinto" required>
  	<!-- <div class="invalid-feedback">
 	 	*
 	 	</div> -->
@@ -100,7 +102,7 @@
  	
  	<div class="form-group">
  	<label for="TipoEmpresa" class="form-label">Tipo Empresa</label>
- 	<input type="text" id="TipoEmpresa" name="TipoEmpresa" class="form-control" value="${empresa.tipoEmpresa}">
+ 	<input type="text" id="TipoEmpresa" name="TipoEmpresa" class="form-control" value="${empresa.tipoEmpresa}" required>
  	<!-- <div class="invalid-feedback">
 	 	* se hara un select
 	 	</div> -->
@@ -108,7 +110,7 @@
  	
  	<div class="form-group">
  	<label for="HorariosAtencion" class="form-label">Horarios Atención</label>
- 	<input type="text" id="HorariosAtencion" name="HorariosAtencion" class="form-control" value="${empresa.horariosAtencion}">
+ 	<input type="text" id="HorariosAtencion" name="HorariosAtencion" class="form-control" value="${empresa.horariosAtencion}" required>
  	<!-- <div class="invalid-feedback">
 	 	* formato ingreso
 	 	</div> -->
@@ -119,7 +121,7 @@
 
  	
  	<div class="container-fluid form-group" role="group" style="padding-top: 10px; text-align: right;">
-		 <button type="submit" class="btn btn-primary" onclick="window.location.href='/ismac-emprendimientos-web/perfilEmpresa/add';return false;">Guardar</button>
+		 <button type="submit" class="btn btn-primary">Guardar</button>
 	 <button type="button" class="btn btn-danger" onclick="window.location.href='/ismac-emprendimientos-web/empresas/findAll';return false;">Cancelar</button>
 	</div>
 		</form>

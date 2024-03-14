@@ -66,7 +66,7 @@ public class Perfil_empresaController {
 			perfil_empresaService.up(idPerfilEmpresa, logo, opcColor1, opcColor2, gamaColor, idEmpresa);
 		}
 		 
-		return "redirect:/perfilEmpresa/findAll";
+		return "redirect:/empresas/findAll";
 	}
 	
 	@GetMapping("/del")

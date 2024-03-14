@@ -40,13 +40,14 @@
 
 
 	 <div class="form-group">
-	 <label for="logo" class="label-file">
-            <i class="fas fa-upload"></i> Seleccionar Un logo para reprecentar tu empresa</label>
-	 <input type="file" id="logo" class="form-control" name="logo" value="${perfil.logo}">
-	 <!-- <div class="invalid-feedback">
-	 	*
-	 	</div> -->
- 	</div>
+    <label for="logo" class="label-file">
+        <i class="fas fa-upload"></i> Seleccionar un logo para representar tu empresa
+    </label>
+    <input type="file" id="logo" class="form-control" name="logo" value="${perfil.logo}" accept=".jpg, .png">
+    <!-- <div class="invalid-feedback">
+        *
+    </div> -->
+	</div>
 
 	
 	<div class="form-group">
@@ -75,9 +76,9 @@
  	</div>
 	 	
 	<div class="container-fluid form-group" role="group" style="padding-top: 10px; text-align: right;">
-		 <button type="submit" class="btn btn-primary">Guardar</button>
-	 <button type="button" class="btn btn-danger" onclick="window.location.href='/ismac-emprendimientos-web/perfilEmpresa/findAll'; return false;">Cancelar</button>
-	</div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="button" class="btn btn-danger" onclick="window.history.back();">Cancelar</button>
+</div>
 	
 	</form>
 </div>
