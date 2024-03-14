@@ -19,4 +19,4 @@ public List<Perfil_empresa> findAll();
 	public void del(int id);
 	
 	public List<Perfil_empresa> findAll(String busqueda);
-}
+	}

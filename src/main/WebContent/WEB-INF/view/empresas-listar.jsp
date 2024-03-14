@@ -68,25 +68,28 @@
         </div>
 		<br>
 		<div class="empresa-container" id="empresaList">
-            <c:forEach var="item" items="${empresas_logos}">
-                <div class="empresa-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">${item.empresa.nombreempresa}</h5>
-                            <div class="card"><img class="empresa-img" alt="" src="/ismac-emprendimientos-web/resources/img/${item.logo}"></div>
-                            <br>
-                            <h6 class="card-text"> ${item.empresa.tipoEmpresa}</h6>
-                            <p class="card-text">Fecha Inicio: ${fn:substring(item.empresa.fechaInicio,0,10)}</p>
-                            <div class="btn-group" role="group">
-    							<a href="${pageContext.request.contextPath}/empresas/findOne?idEmpresa=${item.empresa.idEmpresa}&opcion=3" class="btn btn-primary" title="View">
-       								 <i class="fas fa-eye"></i> View
-    							</a>
-							</div>
-
-                        </div>
-                    </div>
+            <c:forEach var="item" items="${empresas_logos}" varStatus="loop">
+    <div class="empresa-card">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">${item.empresa.nombreempresa}</h5>
+                <div class="card">
+                    <img class="empresa-img" alt="" src="/ismac-emprendimientos-web/resources/img/${item.logo}">
                 </div>
-            </c:forEach>
+                <br>
+                <h6 class="card-text">${item.empresa.tipoEmpresa}</h6>
+      
+                <p class="card-text">Fecha Inicio: ${fn:substring(item.empresa.fechaInicio,0,10)}</p>
+                <div class="btn-group" role="group">
+                    <a href="${pageContext.request.contextPath}/empresas/findOne?idEmpresa=${item.empresa.idEmpresa}&opcion=3" class="btn btn-primary" title="View" id="viewBtn${loop.index}">
+                        <i class="fas fa-eye"></i> View
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</c:forEach>
+
         </div>
     </div>
 </section>
