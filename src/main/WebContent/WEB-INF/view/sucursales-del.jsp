@@ -12,7 +12,7 @@
 	<h1>Borrar Sucursal</h1>
 	
 	<form action="del" method="GET">
-	<input type="hidden" id="idLibro" name="idLibro" value="${sucursal.idSucursal}">
+	<input type="hidden" id="idLibro" name="idLibro" value="${sucursal.idSucursales}">
 	<strong>¿Desea eliminar el dato?</strong>
 	<br/><br/>
 	<button type="submit">Eliminar</button>

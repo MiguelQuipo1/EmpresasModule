@@ -20,9 +20,12 @@
         width: 100%;
     }
     .empresa-img {
-        max-width: 100%;
-        max-height: 150px;
-        height: auto;
+        width: 200px;
+        height: 150px;
+        align: center;
+    }
+    .card{
+    	align-items: center;
     }
 </style>
 </head>
@@ -43,7 +46,7 @@
         
         <!-- Barra de búsqueda -->
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Buscar empresa por nombre o persona a cargo" id="searchInput">
+            <input type="text" class="form-control" placeholder="Buscar empresa por nombre o por Categoria" id="searchInput">
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button" id="searchButton"><i class="fas fa-search"></i></button>
             </div>
@@ -72,7 +75,7 @@
                             <h5 class="card-title">${item.empresa.nombreempresa}</h5>
                             <div class="card"><img class="empresa-img" alt="" src="/ismac-emprendimientos-web/resources/img/${item.logo}"></div>
                             <br>
-                            <p class="card-text">Persona a cargo: ${item.empresa.personaCargoEmpresa}</p>
+                            <h6 class="card-text"> ${item.empresa.tipoEmpresa}</h6>
                             <p class="card-text">Fecha Inicio: ${fn:substring(item.empresa.fechaInicio,0,10)}</p>
                             <div class="btn-group" role="group">
     							<a href="${pageContext.request.contextPath}/empresas/findOne?idEmpresa=${item.empresa.idEmpresa}&opcion=3" class="btn btn-primary" title="View">
