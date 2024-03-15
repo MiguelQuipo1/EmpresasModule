@@ -74,7 +74,7 @@
             <div class="card-body">
                 <h5 class="card-title">${item.empresa.nombreempresa}</h5>
                 <div class="card">
-                    <img class="empresa-img" alt="" src="/ismac-emprendimientos-web/resources/img/${item.logo}">
+                    <img class="empresa-img" alt="" src="/ismac-emprendimientos-web/resources/img/logos/${item.logo}">
                 </div>
                 <br>
                 <h6 class="card-text">${item.empresa.tipoEmpresa}</h6>

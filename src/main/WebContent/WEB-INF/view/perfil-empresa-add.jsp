@@ -30,7 +30,7 @@
 	<h1>Perfil Empresa</h1>
 	
 <div class="container">
-	<form action="add" method="POST" class="row g-3 needs-validation" novalidate>
+	<form action="add" method="POST" enctype="multipart/form-data" class="row g-3 needs-validation" novalidate>
 	
 	 
 
@@ -44,6 +44,9 @@
         <i class="fas fa-upload"></i> Seleccionar un logo para representar tu empresa
     </label>
     <input type="file" id="logo" class="form-control" name="logo" value="${perfil.logo}" accept=".jpg, .png">
+    <div class="container-fluid form-group" role="group" style="padding-top: 10px; text-align: right;">
+   	 <button type="button" class="btn btn-primary" >Guardar</button>
+    </div>
     <!-- <div class="invalid-feedback">
         *
     </div> -->
@@ -152,5 +155,22 @@
             return { r: r, g: g, b: b };
         }
     </script>
+           <script>
+           document.getElementById('logo').addEventListener('change', function() {
+        	    var file = this.files[0];
+        	    var formData = new FormData();
+        	    formData.append('file', file);
+
+        	    fetch('redirect:/perfilEmpresa/upload', {
+        	        method: 'POST',
+        	        body: formData
+        	    }).then(response => {
+        	        console.log(response);
+        	    });
+        	});
+
+    </script>
+
+    
 </body>
 </html>

@@ -16,6 +16,19 @@ import com.distribuida.dto.EmpresaService;
 import com.distribuida.dto.Perfil_empresaService;
 import com.distribuida.entities.Empresa;
 import com.distribuida.entities.Perfil_empresa;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
 
 @Controller
 @RequestMapping("/perfilEmpresa")
@@ -75,4 +88,18 @@ public class Perfil_empresaController {
 		return "redirect:/perfilEmpresa/findAll";
 		
 	}
+	@WebServlet("/upload")
+	@MultipartConfig(location="/tmp", fileSizeThreshold=1024*1024, maxFileSize=1024*1024*5, maxRequestSize=1024*1024*5*5)
+	public class UploadServlet extends HttpServlet {
+	    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	        Part part = request.getPart("file");
+	        String fileName = Paths.get(part.getSubmittedFileName()).getFileName().toString();
+	        File uploads = new File(getServletContext().getRealPath("/") + "WEB-INF/resources/img/logos/");
+	        File file = new File(uploads, fileName);
+	        try (InputStream input = part.getInputStream()) {
+	            Files.copy(input, file.toPath());
+	        }
+	    }
+	}
+
 }

@@ -91,7 +91,7 @@ public class EmpresaController {
 	        return "empresa-add"; // Redirige a la URL correspondiente al método empresa-add
 	    } else if (opcion == 2) {
 	        // Opción 2: Borrar
-	        return "empresa-del"; // Redirige a la URL correspondiente al método empresa-del
+	        return "	empresa-del"; // Redirige a la URL correspondiente al método empresa-del
 	    } else if (opcion == 3) {
 	        // Opción 3: Ver perfil
 	        return "empresa-perfil"; // Nombre del archivo JSP para ver perfil de empresa

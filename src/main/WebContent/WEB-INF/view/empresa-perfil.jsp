@@ -77,7 +77,7 @@
                            <div class="profile">
                                 <div class="avatar" style=" height: 150px; align-items: center;">
                                     <!--Imagen perfil-->
-                                    <img src="/ismac-emprendimientos-web/resources/img/${perfilEmpresa.logo}" alt="Circle Image" class="img-raised rounded-circle img-fluid" style="height: 100%">
+                                    <img src="/ismac-emprendimientos-web/resources/img/logos/${perfilEmpresa.logo}" alt="Circle Image" class="img-raised rounded-circle img-fluid" style="height: 100%">
                                 </div>
                                 <div class="name">
                                     <!--Nombre Usuario o empresa-->

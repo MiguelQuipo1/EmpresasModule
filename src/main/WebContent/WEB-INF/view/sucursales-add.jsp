@@ -48,7 +48,7 @@
 	
 	<div class="form-group">
     <label for="descripcion">
-        <i class="fas fa-upload"></i> Agrega Una descripcion
+        <i class="fas fa-upload"></i> Agrega la Ubicacion de dicha sucursal
     </label>
 	 <input type="text" id="descripcion" name="descripcion" class="form-control" value="${detalle.descripcion}" required>
 	  <!-- <div class="invalid-feedback">
