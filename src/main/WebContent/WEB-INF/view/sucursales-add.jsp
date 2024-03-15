@@ -74,7 +74,7 @@
 
 	 	
 	<div class="container-fluid form-group" role="group" style="padding-top: 10px; text-align: right;">
-    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='/ismac-emprendimientos-web/empresas/findAll';return false;">Guardar</button>
     <button type="button" class="btn btn-danger" onclick="window.history.back();">Cancelar</button>
 </div>
 	
