@@ -75,23 +75,20 @@ public class EmpresaController {
 	                      @RequestParam("opcion") Integer opcion,
 	                      Model model) {
 	    if (idEmpresa != null) { 
+	        // Obtener la empresa por su ID
 	        Empresa empresa = empresaService.finOne(idEmpresa);
 	        model.addAttribute("empresa", empresa);
 	        
-	        // Aquí obtienes la sucursal relacionada con la empresa
-	        Sucursales sucursal = sucursalesService.finOne(idEmpresa);
-	        model.addAttribute("sucursal", sucursal); // Cambia "sucursales" a "sucursal"
-
+	        // Obtener el perfil de empresa relacionado con la empresa por su ID
 	        Perfil_empresa perfil = perfil_empresaService.finOne(idEmpresa);
-	        model.addAttribute("perfil", perfil); // Cambia "sucursales" a "sucursal"
+	        model.addAttribute("perfil", perfil);
 	    }
-
 	    if (opcion == 1) {
 	        // Opción 1: Actualizar
 	        return "empresa-add"; // Redirige a la URL correspondiente al método empresa-add
 	    } else if (opcion == 2) {
 	        // Opción 2: Borrar
-	        return "	empresa-del"; // Redirige a la URL correspondiente al método empresa-del
+	        return "empresa-del"; // Redirige a la URL correspondiente al método empresa-del
 	    } else if (opcion == 3) {
 	        // Opción 3: Ver perfil
 	        return "empresa-perfil"; // Nombre del archivo JSP para ver perfil de empresa
@@ -100,6 +97,7 @@ public class EmpresaController {
 	        return "redirect:/empresas/findAll";
 	    }
 	}
+
 	@PostMapping("/add")
 	public String add(@RequestParam("idEmpresa")@Nullable Integer idEmpresa
 			,@RequestParam("QRPago")@Nullable String QRPago

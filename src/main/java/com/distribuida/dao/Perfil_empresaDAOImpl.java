@@ -72,4 +72,14 @@ public class Perfil_empresaDAOImpl implements Perfil_empresaDAO {
 				return query.getResultList();
 	}
 
+//	@Override
+//	@Transactional
+//	public Perfil_empresa findOneEmpresa(int id) {
+//		// TODO Auto-generated method stub				
+//		Session session = sessionFactory.getCurrentSession();
+//		Query<Perfil_empresa> query = session.createQuery("SELECT DISTINCT au FROM Perfil_empresa au WHERE au.empresa.idEmpresa =: keyIdEmpresa",Perfil_empresa.class);	
+//		query.setParameter("keyIdEmpresa", id );
+//		return query.getSingleResult();
+//	}
+
 }

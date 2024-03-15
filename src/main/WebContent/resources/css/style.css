@@ -124,7 +124,7 @@ a .material-icons {
 }
 
 .main {
-    background: #FFF;
+    background: rgb(255, 255, 255);
     position: relative;
     z-index: 3;
 }

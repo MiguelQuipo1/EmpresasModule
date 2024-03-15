@@ -40,7 +40,7 @@
     <label for="sucursal">
         <i class="fas fa-upload"></i> Agregas una sucursal
     </label>
-	 <input type="text" id="sucursal" name="sucursal"  class="form-control" value="${sucursal.sucursal}" required placeholder="Nombre y dirección">
+	 <input type="text" id="sucursal" name="sucursal"  class="form-control" value="${sucursal.sucursal}" required placeholder="Nombre sucursal">
 	 <!-- <div class="invalid-feedback">
         *
     </div> -->
@@ -48,9 +48,9 @@
 	
 	<div class="form-group">
     <label for="descripcion">
-        <i class="fas fa-upload"></i> Agrega la Ubicacion de dicha sucursal
+        <i class="fas fa-upload"></i> Descripción
     </label>
-	 <input type="text" id="descripcion" name="descripcion" class="form-control" value="${detalle.descripcion}" required>
+	 <input type="text" id="descripcion" name="descripcion" class="form-control" value="${detalle.descripcion}" required placeholder="Direccion de sucursal">
 	  <!-- <div class="invalid-feedback">
         *
     </div> -->

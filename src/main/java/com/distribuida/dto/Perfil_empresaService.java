@@ -18,5 +18,5 @@ public interface Perfil_empresaService {
 	public void up(int idPerfilEmpresa, String logo, String opcColor1, String opcColor2, String gamaColor, int fk_idEmpresa);
 	
 	public void del(int id);
-	
+
 }

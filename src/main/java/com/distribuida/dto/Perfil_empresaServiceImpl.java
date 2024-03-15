@@ -57,6 +57,4 @@ public class Perfil_empresaServiceImpl implements Perfil_empresaService {
 		perfil_empresaDAO.del(id);
 	}
 
-
-
 }

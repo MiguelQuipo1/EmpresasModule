@@ -14,6 +14,22 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
         <link rel="stylesgeet" href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
+ 	<style >
+ 		.main {
+   			background: ${perfilEmpresa.opcColor2};
+    		position: relative;
+    		z-index: 3;
+		}
+		body {
+   			margin: 0;
+    		font-family: Roboto, Helvetica, Arial, sans-serif;
+    		font-size: 1rem;
+    		line-height: 1.5;
+    		color: #212529;
+    		text-align: left;
+    		background-color: ${perfilEmpresa.opcColor1} ;
+			}
+</style>
  </head>
     
     <body class="profile-page">
@@ -68,7 +84,7 @@
             </div>
         </nav>
         
-        <div class="page-header header-filter" data-parallax="true" style="background-image:url('http://wallpapere.org/wp-content/uploads/2012/02/black-and-white-city-night.png');"></div>
+        <div class="page-header " data-parallax="true" ></div>
         <div class="main main-raised">
             <div class="profile-content">
                 <div class="container">

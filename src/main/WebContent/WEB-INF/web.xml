@@ -26,20 +26,6 @@
     <servlet-name>dispatcher</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-
-  <servlet>
-    <servlet-name>UploadServlet</servlet-name>
-    <servlet-class>com.yourpackage.UploadServlet</servlet-class>
-    <multipart-config>
-        <location>/tmp</location>
-        <max-file-size>5242880</max-file-size>
-        <max-request-size>26214400</max-request-size>
-        <file-size-threshold>1048576</file-size-threshold>
-    </multipart-config>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UploadServlet</servlet-name>
-    <url-pattern>/upload</url-pattern>
-  </servlet-mapping>
 			
+   
 </web-app>

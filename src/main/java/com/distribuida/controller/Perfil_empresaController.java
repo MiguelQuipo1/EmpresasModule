@@ -88,18 +88,6 @@ public class Perfil_empresaController {
 		return "redirect:/perfilEmpresa/findAll";
 		
 	}
-	@WebServlet("/upload")
-	@MultipartConfig(location="/tmp", fileSizeThreshold=1024*1024, maxFileSize=1024*1024*5, maxRequestSize=1024*1024*5*5)
-	public class UploadServlet extends HttpServlet {
-	    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	        Part part = request.getPart("file");
-	        String fileName = Paths.get(part.getSubmittedFileName()).getFileName().toString();
-	        File uploads = new File(getServletContext().getRealPath("/") + "WEB-INF/resources/img/logos/");
-	        File file = new File(uploads, fileName);
-	        try (InputStream input = part.getInputStream()) {
-	            Files.copy(input, file.toPath());
-	        }
-	    }
-	}
+	
 
 }

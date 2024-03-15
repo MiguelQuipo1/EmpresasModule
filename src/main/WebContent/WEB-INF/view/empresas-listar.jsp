@@ -70,7 +70,7 @@
 		<div class="empresa-container" id="empresaList">
             <c:forEach var="item" items="${empresas_logos}" varStatus="loop">
     <div class="empresa-card">
-        <div class="card">
+        <div class="card" <%-- style="background-color: ${item.opcColor1}" --%>>
             <div class="card-body">
                 <h5 class="card-title">${item.empresa.nombreempresa}</h5>
                 <div class="card">
